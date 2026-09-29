@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ударная дрель-шуруповерт Bosch Professional — SosedShare</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="assets/images/logo.png" alt="SosedShare" class="header-logo-img">
+            </a>
+
+            <!-- Хлебные крошки по центру шапки -->
+            <nav style="font-size:0.85rem; color:var(--text-muted); display:flex; align-items:center; gap:0.4rem;" class="header-breadcrumbs">
+                <a href="index.html" style="color:var(--text-muted);">Каталог</a> &gt;
+                <a href="index.html" style="color:var(--text-muted);">Инструменты</a> &gt;
+                <span style="color:var(--text-dark); font-weight:600;">Ударная дрель-шуруповерт Bosch</span>
+            </nav>
+
+            <nav class="header-nav">
+                <a href="#" class="header-nav-link">💬 Чаты (2)</a>
+                <a href="profile.html" class="header-nav-link">👤 Профиль</a>
+                <button class="btn-black-pill">+ Сдать вещь</button>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <!-- Выдвижное мобильное меню -->
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="index.html" class="header-nav-link">🔍 Каталог</a>
+        <a href="details.html" class="header-nav-link active">🛠️ Обзор товара</a>
+        <a href="profile.html" class="header-nav-link">👤 Профиль</a>
+        <button class="btn-black-pill">+ Сдать вещь</button>
+    </nav>
+
+    <!-- Основной контент страницы -->
+    <main class="main-layout">
+        <div class="details-layout">
+            
+            <!-- Левая широкая карточка товара -->
+            <section class="details-left-card">
+                <span class="view-badge">Просмотрено 6 раз</span>
+
+                <div class="details-main-img-box">
+                    <img src="assets/images/drill.png" alt="Ударная дрель-шуруповерт Bosch" class="details-main-img">
+                </div>
+
+                <h1 class="details-title">Ударная дрель-шуруповерт Bosch Professional</h1>
+
+                <div class="details-price-row">
+                    <span class="details-price-value">15 руб/день</span>
+                    <span class="details-meta-text">Залог: 50 руб • 📍 0.5 км (5 мин пешком)</span>
+                </div>
+
+                <div class="specs-section">
+                    <div class="specs-title">Характеристики и комплектация:</div>
+                    <div class="spec-line">🛠️ Состояние: отличное, полностью исправна</div>
+                    <div class="spec-line">🔋 В комплекте 2 аккумулятора 18V и зарядное устройство</div>
+                    <div class="spec-line">🧰 Фирменный ударопрочный кейс Bosch для переноски</div>
+                </div>
+            </section>
+
+            <!-- Правая боковая панель бронирования -->
+            <aside class="details-right-sidebar">
+                
+                <!-- Желтый блок скидки -->
+                <div class="discount-yellow-box">
+                    <div class="discount-title">Доступна скидка на долгий срок:</div>
+                    <div class="discount-text">1 день: 15 руб | 3 дня: 35 руб | 7 дней: 80 руб</div>
+                </div>
+
+                <!-- Карточка владельца -->
+                <div class="landlord-card">
+                    <div class="landlord-avatar-circle">AK</div>
+                    <div>
+                        <div class="landlord-name">Алексей К.</div>
+                        <div class="landlord-rating">★ 4.9 (12 отзывов) • Сдает впервые в доме</div>
+                    </div>
+                </div>
+
+                <!-- Цена и безопасная сделка -->
+                <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                    <h2 class="price-huge">15 руб/день</h2>
+                    <div class="safe-deal-tag">✓ Безопасная сделка SosedShare</div>
+                </div>
+
+                <!-- Голубой блок страховки -->
+                <div class="insurance-blue-box">
+                    <div class="insurance-title">🛡️ Страховая защита до 500 BYN</div>
+                    <div class="insurance-desc">Сервис компенсирует ущерб при поломке</div>
+                </div>
+
+                <!-- Кнопки действий -->
+                <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.5rem;">
+                    <button class="btn-green-book" id="bookModalBtn">Забронировать вещь</button>
+                    <button class="btn-black-pill" style="padding:0.85rem; font-size:0.95rem; display:flex; align-items:center; justify-content:center; gap:0.5rem;">
+                        <span>💬</span> Написать владельцу в чат
+                    </button>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Модальное окно бронирования -->
+    <div id="bookingModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center; padding:1rem;">
+        <div style="background:#fff; border-radius:var(--radius-xl); max-width:420px; width:100%; padding:1.5rem; display:flex; flex-direction:column; gap:1rem;">
+            <h3 style="margin:0; font-size:1.2rem;">Бронирование инструмента</h3>
+            <div>
+                <label style="font-size:0.85rem; font-weight:600;">Дата начала аренды:</label>
+                <input type="date" style="width:100%; padding:0.6rem; border:1px solid var(--border-color); border-radius:var(--radius-md); margin-top:0.25rem;">
+            </div>
+            <div>
+                <label style="font-size:0.85rem; font-weight:600;">Срок аренды (дней):</label>
+                <input type="number" value="1" min="1" style="width:100%; padding:0.6rem; border:1px solid var(--border-color); border-radius:var(--radius-md); margin-top:0.25rem;">
+            </div>
+            <div style="font-weight:800; font-size:1.2rem; text-align:right;">Итого: 15 BYN</div>
+            <div style="display:flex; gap:0.5rem;">
+                <button class="btn-black-pill" id="closeModalBtn" style="flex:1; background:#F1F5F9; color:#000;">Отмена</button>
+                <button class="btn-green-book" onclick="alert('Заявка отправлена владельцу!')" style="flex:1;">Подтвердить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

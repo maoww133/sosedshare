@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SosedShare — Каталог вещей рядом с вами</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="assets/images/logo.png" alt="SosedShare" class="header-logo-img">
+            </a>
+
+            <div class="header-search">
+                <span class="header-search-icon">🔍</span>
+                <input type="text" class="header-search-input" placeholder="Например, Дрель, Пылесос, Коляска...">
+            </div>
+
+            <nav class="header-nav">
+                <a href="#" class="header-nav-link">💬 Чаты (2)</a>
+                <a href="profile.html" class="header-nav-link">👤 Профиль</a>
+                <button class="btn-black-pill">+ Сдать вещь</button>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <!-- Выдвижное мобильное меню -->
+    <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="index.html" class="header-nav-link active">🔍 Каталог</a>
+        <a href="details.html" class="header-nav-link">🛠️ Обзор товара</a>
+        <a href="profile.html" class="header-nav-link">👤 Профиль</a>
+        <button class="btn-black-pill">+ Сдать вещь</button>
+    </nav>
+
+    <!-- Основной контент страницы -->
+    <main class="main-layout">
+        <div class="catalog-container">
+            
+            <!-- Левый сайдбар с фильтрами -->
+            <aside class="sidebar-filters">
+                <h2 class="filter-title">Фильтры</h2>
+                
+                <div class="filter-location">
+                    <span>📍</span>
+                    <span>Минск, Беларусь</span>
+                </div>
+
+                <div class="filter-slider-box">
+                    <span class="filter-label">Радиус: 1.5 км</span>
+                    <input type="range" min="0.1" max="10" step="0.1" value="1.5" class="range-slider">
+                </div>
+
+                <div class="filter-slider-box">
+                    <span class="filter-label">Категории</span>
+                    <div class="category-pill-list">
+                        <button class="cat-pill-btn active">⚒️ Инструменты (42)</button>
+                        <button class="cat-pill-btn">🍵 Бытовая техника (18)</button>
+                        <button class="cat-pill-btn">👶 Детские товары (28)</button>
+                        <button class="cat-pill-btn">🏕️ Отдых и туризм (19)</button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Правая секция каталога -->
+            <section class="catalog-main">
+                <div>
+                    <h1 class="catalog-header-title">Каталог вещей рядом с вами</h1>
+                    <p class="catalog-header-sub">Найдено 42 объявления в радиусе 1.5 км от Минск, Немига</p>
+                </div>
+
+                <!-- Сетка товаров (8 карточек) -->
+                <div class="product-grid">
+                    
+                    <!-- Карточка 1 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/drill.png" alt="Ударная дрель Bosch" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ударная дрель Bosch</h3>
+                            <div class="product-price">15 руб/день</div>
+                            <div class="product-meta">📍 0.5 км • Залог 50 руб</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                    <!-- Карточка 2 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/robot_vacuum.png" alt="Робот-пылесос Xiaomi" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Робот-пылесос Xiaomi</h3>
+                            <div class="product-price">12 руб/день</div>
+                            <div class="product-meta">📍 0.3 км • Залог 0 руб</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                    <!-- Карточка 3 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/watering_can.png" alt="Лейка садовая" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Лейка садовая</h3>
+                            <div class="product-price">20 руб/день</div>
+                            <div class="product-meta">📍 1.2 км • Залог 0 руб</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                    <!-- Карточка 4 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/skis.png" alt="Лыжи беговые" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Лыжи беговые</h3>
+                            <div class="product-price">25 руб/день</div>
+                            <div class="product-meta">📍 1.0 км</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                    <!-- Карточка 5 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/monopoly.png" alt="Игра монополия" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Игра монополия</h3>
+                            <div class="product-price">15 руб/день</div>
+                            <div class="product-meta">📍 0.5 км</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                    <!-- Карточка 6 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/stroller.png" alt="Детская коляска" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Детская коляска</h3>
+                            <div class="product-price">12 руб/день</div>
+                            <div class="product-meta">📍 0.3 км • Залог 0 руб</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                    <!-- Карточка 7 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/karaoke.png" alt="Караоке-система" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Караоке-система</h3>
+                            <div class="product-price">20 руб/день</div>
+                            <div class="product-meta">📍 1.2 км • Залог 0 руб</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                    <!-- Карточка 8 -->
+                    <article class="product-card">
+                        <div class="product-img-box">
+                            <img src="assets/images/sup_board.png" alt="SUP-борд" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">SUP-борд</h3>
+                            <div class="product-price">25 руб/день</div>
+                            <div class="product-meta">📍 1.0 км</div>
+                        </div>
+                        <a href="details.html" class="btn-card-action">Забронировать</a>
+                    </article>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

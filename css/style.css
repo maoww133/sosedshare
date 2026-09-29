@@ -1,0 +1,757 @@
+/* ==========================================================================
+   Лабораторная работа № 5: Верстка мобильно-ориентированного приложения
+   Тема: P2P-шеринг «SosedShare» (СоседШер)
+   Точное соответствие фигма-макетам пользователя
+   ========================================================================== */
+
+:root {
+  --primary-black: #000000;
+  --text-dark: #111827;
+  --text-muted: #6B7280;
+  --bg-sidebar: #F3F6FA;
+  --bg-card: #FFFFFF;
+  --border-color: #E5E7EB;
+  --accent-green: #10B981;
+  --accent-green-hover: #059669;
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   1. ШАПКА САЙТА (HEADER)
+   ========================================================================== */
+.site-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Поиск в шапке */
+.header-search {
+  display: flex;
+  align-items: center;
+  background-color: #F1F5F9;
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1.25rem;
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.header-search:focus-within {
+  border-color: #CBD5E1;
+  background-color: #FFFFFF;
+}
+
+.header-search-icon {
+  color: #94A3B8;
+  margin-right: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.header-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.header-search-input::placeholder {
+  color: #94A3B8;
+}
+
+/* Навигация и кнопки справа */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.header-nav-link.active, .header-nav-link:hover {
+  color: var(--primary-black);
+  font-weight: 600;
+}
+
+.btn-black-pill {
+  background-color: var(--primary-black);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.btn-black-pill:hover {
+  background-color: #262626;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Мобильное выдвижное меню */
+.mobile-nav-drawer {
+  display: none;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+.mobile-nav-drawer.is-active {
+  display: flex;
+}
+
+/* ==========================================================================
+   2. ГЛАВНЫЙ КОНТЕЙНЕР
+   ========================================================================== */
+.main-layout {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  flex: 1;
+}
+
+/* ==========================================================================
+   3. КАТАЛОГ (INDEX.HTML)
+   ========================================================================== */
+.catalog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Левый сайдбар фильтров */
+.sidebar-filters {
+  background-color: var(--bg-sidebar);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.filter-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.filter-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.filter-slider-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.range-slider {
+  width: 100%;
+  accent-color: #2563EB;
+  cursor: pointer;
+}
+
+.category-pill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cat-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cat-pill-btn.active {
+  background-color: var(--primary-black);
+  color: #FFFFFF;
+  border-color: var(--primary-black);
+}
+
+.cat-pill-btn:hover:not(.active) {
+  background-color: #F1F5F9;
+}
+
+/* Правая сетка товаров */
+.catalog-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.catalog-header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.catalog-header-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.product-img-box {
+  width: 100%;
+  height: 160px;
+  background-color: #F8FAFC;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.product-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.product-price {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.product-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-card-action {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: var(--primary-black);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-card-action:hover {
+  background-color: #262626;
+}
+
+/* ==========================================================================
+   4. ДЕТАЛИ ТОВАРА (DETAILS.HTML)
+   ========================================================================== */
+.details-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.details-left-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.view-badge {
+  display: inline-block;
+  background-color: var(--accent-green);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+}
+
+.details-main-img-box {
+  width: 100%;
+  height: 320px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-main-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.details-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.details-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.details-price-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.details-meta-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.specs-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.specs-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.spec-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+/* Правая панель бронирования */
+.details-right-sidebar {
+  background-color: var(--bg-sidebar);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.discount-yellow-box {
+  background-color: #FEF3C7;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.discount-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #854D0E;
+}
+
+.discount-text {
+  font-size: 0.8rem;
+  color: #A16207;
+}
+
+.landlord-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.landlord-avatar-circle {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background-color: var(--primary-black);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.landlord-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.landlord-rating {
+  font-size: 0.8rem;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.price-huge {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.safe-deal-tag {
+  color: var(--accent-green);
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.insurance-blue-box {
+  background-color: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.insurance-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1D4ED8;
+}
+
+.insurance-desc {
+  font-size: 0.75rem;
+  color: #2563EB;
+}
+
+.btn-green-book {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--accent-green);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-green-book:hover {
+  background-color: var(--accent-green-hover);
+}
+
+/* ==========================================================================
+   5. ПРОФИЛЬ (PROFILE.HTML)
+   ========================================================================== */
+.profile-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-left-sidebar {
+  background-color: var(--bg-sidebar);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.user-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.user-avatar-img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-verified-tag {
+  color: var(--accent-green);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.profile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.profile-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-page-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.stats-cards-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.stat-box {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.stat-box-blue {
+  background-color: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+.stat-box-green {
+  background-color: #DCFCE7;
+  border: 1px solid #BBF7D0;
+}
+
+.stat-box-grey {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+}
+
+.stat-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.stat-box-blue .stat-title { color: #2563EB; }
+.stat-box-green .stat-title { color: #15803D; }
+.stat-box-grey .stat-title { color: #64748B; }
+
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.stat-box-blue .stat-number { color: #1D4ED8; }
+.stat-box-green .stat-number { color: #166534; }
+.stat-box-grey .stat-number { color: #1E293B; }
+
+.my-listing-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.listing-left-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.listing-thumb-img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   6. МЕДИА-ЗАПРОСЫ (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tablet & Desktop (от 768px) */
+@media (min-width: 768px) {
+  .catalog-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .details-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    align-items: start;
+  }
+
+  .profile-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+  }
+
+  .stats-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large Desktop (от 1024px) */
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Mobile Screens (до 767px) */
+@media (max-width: 767px) {
+  .header-search {
+    display: none; /* Скрываем строку поиска из шапки на мобильном */
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}

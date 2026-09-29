@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <rect width="400" height="300" fill="#f0fdf4"/>
+  <circle cx="110" cy="180" r="55" fill="none" stroke="#16a34a" stroke-width="10"/>
+  <circle cx="290" cy="180" r="55" fill="none" stroke="#16a34a" stroke-width="10"/>
+  <polygon points="110,180 200,180 250,110 160,110" fill="none" stroke="#15803d" stroke-width="8"/>
+  <line x1="200" y1="180" x2="160" y2="110" stroke="#15803d" stroke-width="8"/>
+  <line x1="290" y1="180" x2="250" y2="110" stroke="#15803d" stroke-width="8"/>
+  <rect x="135" y="95" width="40" height="15" rx="5" fill="#0f172a"/>
+  <text x="200" y="270" font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold" fill="#15803d" text-anchor="middle">Велосипед Trek</text>
+</svg>
